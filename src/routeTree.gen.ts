@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AberturaGratuitaRouteImport } from './routes/abertura-gratuita'
 import { Route as AdvogadosRouteImport } from './routes/advogados'
 import { Route as SaudeRouteImport } from './routes/saude'
 import { Route as ServicosRouteImport } from './routes/servicos'
@@ -17,6 +18,11 @@ import { Route as ServicosRouteImport } from './routes/servicos'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AberturaGratuitaRoute = AberturaGratuitaRouteImport.update({
+  id: '/abertura-gratuita',
+  path: '/abertura-gratuita',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdvogadosRoute = AdvogadosRouteImport.update({
@@ -37,12 +43,14 @@ const ServicosRoute = ServicosRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/abertura-gratuita': typeof AberturaGratuitaRoute
   '/advogados': typeof AdvogadosRoute
   '/saude': typeof SaudeRoute
   '/servicos': typeof ServicosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/abertura-gratuita': typeof AberturaGratuitaRoute
   '/advogados': typeof AdvogadosRoute
   '/saude': typeof SaudeRoute
   '/servicos': typeof ServicosRoute
@@ -50,20 +58,28 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/abertura-gratuita': typeof AberturaGratuitaRoute
   '/advogados': typeof AdvogadosRoute
   '/saude': typeof SaudeRoute
   '/servicos': typeof ServicosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/advogados' | '/saude' | '/servicos'
+  fullPaths: '/' | '/abertura-gratuita' | '/advogados' | '/saude' | '/servicos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/advogados' | '/saude' | '/servicos'
-  id: '__root__' | '/' | '/advogados' | '/saude' | '/servicos'
+  to: '/' | '/abertura-gratuita' | '/advogados' | '/saude' | '/servicos'
+  id:
+    | '__root__'
+    | '/'
+    | '/abertura-gratuita'
+    | '/advogados'
+    | '/saude'
+    | '/servicos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AberturaGratuitaRoute: typeof AberturaGratuitaRoute
   AdvogadosRoute: typeof AdvogadosRoute
   SaudeRoute: typeof SaudeRoute
   ServicosRoute: typeof ServicosRoute
@@ -76,6 +92,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/abertura-gratuita': {
+      id: '/abertura-gratuita'
+      path: '/abertura-gratuita'
+      fullPath: '/abertura-gratuita'
+      preLoaderRoute: typeof AberturaGratuitaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/advogados': {
@@ -104,6 +127,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AberturaGratuitaRoute: AberturaGratuitaRoute,
   AdvogadosRoute: AdvogadosRoute,
   SaudeRoute: SaudeRoute,
   ServicosRoute: ServicosRoute,
