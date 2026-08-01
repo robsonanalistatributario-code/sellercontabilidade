@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { WHATSAPP_DISPLAY } from "@/lib/contato";
 import logo from "@/assets/seller-logo.jpg.asset.json";
 
 export function Footer() {
@@ -53,7 +54,7 @@ export function Footer() {
           <h3 className="text-sm font-bold uppercase tracking-wide">Contato</h3>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
-              <Phone className="size-4 text-cyan" /> (17) 99999-0000
+              <Phone className="size-4 text-cyan" /> {WHATSAPP_DISPLAY}
             </li>
             <li className="flex items-center gap-2">
               <Mail className="size-4 text-cyan" /> contato@sellercontabilidade.com.br

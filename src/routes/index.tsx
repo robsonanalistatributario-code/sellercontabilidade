@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import { Page, Section, Eyebrow } from "@/components/site/Page";
 import { Button } from "@/components/ui/button";
+import { Pricing } from "@/components/site/Pricing";
+import { whatsappLink } from "@/lib/contato";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -67,6 +69,13 @@ const differentials = [
   { icon: Repeat, title: "Troca de contador grátis", text: "Assumimos toda a transição com o antigo escritório." },
 ] as const;
 
+const stats = [
+  { value: "+300", label: "Empresas atendidas" },
+  { value: "R$ 0", label: "Honorários de abertura" },
+  { value: "24h", label: "Resposta no WhatsApp" },
+  { value: "100%", label: "Digital e sem fila" },
+] as const;
+
 function Index() {
   return (
     <Page>
@@ -89,7 +98,7 @@ function Index() {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href="https://wa.me/5517999990000" target="_blank" rel="noreferrer">
+              <a href={whatsappLink()} target="_blank" rel="noreferrer">
                 Falar no WhatsApp
               </a>
             </Button>
@@ -97,22 +106,38 @@ function Index() {
           <p className="mt-6 text-xs uppercase tracking-widest text-muted-foreground">
             Sem taxa de adesão · Sem multa de cancelamento · 100% online
           </p>
+
+          <dl className="mt-14 grid grid-cols-2 gap-5 md:grid-cols-4">
+            {stats.map((s) => (
+              <div
+                key={s.label}
+                className="rounded-xl border border-border bg-card/70 p-5 backdrop-blur"
+              >
+                <dt className="font-display text-3xl text-gradient-brand">{s.value}</dt>
+                <dd className="mt-1 text-xs uppercase tracking-wide text-muted-foreground">
+                  {s.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </Section>
       </div>
 
       <Section>
         <Eyebrow>Especialidades</Eyebrow>
-        <h2 className="mt-5 text-2xl uppercase md:text-4xl">
-          Uma contabilidade feita para o seu segmento
+        <h2 className="mt-5 max-w-2xl text-2xl uppercase md:text-4xl">
+          Uma contabilidade feita para o <span className="text-gradient-brand">seu segmento</span>
         </h2>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {segments.map((s) => (
             <Link
               key={s.to}
               to={s.to}
-              className="group rounded-lg border border-border bg-card p-7 transition-colors hover:border-primary"
+              className="group rounded-2xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-brand"
             >
-              <s.icon className="size-8 text-cyan" />
+              <span className="inline-flex size-12 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground">
+                <s.icon className="size-6" />
+              </span>
               <h3 className="mt-5 text-xl">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
@@ -129,8 +154,8 @@ function Index() {
           <h2 className="text-2xl uppercase md:text-4xl">Como funciona</h2>
           <ol className="mt-10 grid gap-5 md:grid-cols-4">
             {steps.map((s, i) => (
-              <li key={s.title} className="rounded-lg border border-border bg-card p-6">
-                <span className="font-display text-3xl text-primary">0{i + 1}</span>
+              <li key={s.title} className="rounded-2xl border border-border bg-card p-6">
+                <span className="font-display text-3xl text-gradient-brand">0{i + 1}</span>
                 <h3 className="mt-3 text-base">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
               </li>
@@ -145,9 +170,11 @@ function Index() {
           {differentials.map((d) => (
             <div
               key={d.title}
-              className="flex gap-4 rounded-lg border border-border bg-card p-6"
+              className="flex gap-4 rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-brand"
             >
-              <d.icon className="size-6 shrink-0 text-cyan" />
+              <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                <d.icon className="size-5 text-primary" />
+              </span>
               <div>
                 <h3 className="text-base">{d.title}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{d.text}</p>
@@ -157,6 +184,8 @@ function Index() {
         </div>
       </Section>
 
+      <Pricing />
+
       <div className="border-t border-border/60 bg-surface">
         <Section className="text-center">
           <h2 className="mx-auto max-w-2xl text-2xl uppercase md:text-4xl">
@@ -165,9 +194,16 @@ function Index() {
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
             Fale com um especialista da Seller e receba a simulação do seu imposto hoje.
           </p>
-          <Button asChild size="lg" className="mt-8">
-            <Link to="/abertura-gratuita">Quero abrir minha empresa</Link>
-          </Button>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Button asChild size="lg">
+              <Link to="/abertura-gratuita">Quero abrir minha empresa</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <a href={whatsappLink()} target="_blank" rel="noreferrer">
+                Falar no WhatsApp
+              </a>
+            </Button>
+          </div>
         </Section>
       </div>
     </Page>
