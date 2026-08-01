@@ -15,12 +15,14 @@ export function Page({ children }: { children: ReactNode }) {
 export function Section({
   children,
   className = "",
+  id,
 }: {
   children: ReactNode;
   className?: string;
+  id?: string;
 }) {
   return (
-    <section className={`mx-auto max-w-6xl px-5 py-16 md:py-24 ${className}`}>
+    <section id={id} className={`mx-auto max-w-6xl px-5 py-16 md:py-24 ${className}`}>
       {children}
     </section>
   );
