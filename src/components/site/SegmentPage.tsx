@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { Check, ArrowRight } from "lucide-react";
 import { Page, Section, Eyebrow } from "@/components/site/Page";
 import { Button } from "@/components/ui/button";
+import { Pricing } from "@/components/site/Pricing";
+import { whatsappLink } from "@/lib/contato";
 
 export type SegmentContent = {
   eyebrow: string;
@@ -80,6 +82,8 @@ export function SegmentPage({ content }: { content: SegmentContent }) {
           </div>
         </Section>
       </div>
+
+      <Pricing compact />
 
       <Section className="text-center">
         <h2 className="mx-auto max-w-2xl text-2xl uppercase md:text-4xl">

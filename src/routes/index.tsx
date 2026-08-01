@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import { Page, Section, Eyebrow } from "@/components/site/Page";
 import { Button } from "@/components/ui/button";
+import { Pricing } from "@/components/site/Pricing";
+import { whatsappLink } from "@/lib/contato";
 
 export const Route = createFileRoute("/")({
   head: () => ({
