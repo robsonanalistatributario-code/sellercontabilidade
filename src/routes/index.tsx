@@ -99,22 +99,38 @@ function Index() {
           <p className="mt-6 text-xs uppercase tracking-widest text-muted-foreground">
             Sem taxa de adesão · Sem multa de cancelamento · 100% online
           </p>
+
+          <dl className="mt-14 grid grid-cols-2 gap-5 md:grid-cols-4">
+            {stats.map((s) => (
+              <div
+                key={s.label}
+                className="rounded-xl border border-border bg-card/70 p-5 backdrop-blur"
+              >
+                <dt className="font-display text-3xl text-gradient-brand">{s.value}</dt>
+                <dd className="mt-1 text-xs uppercase tracking-wide text-muted-foreground">
+                  {s.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </Section>
       </div>
 
       <Section>
         <Eyebrow>Especialidades</Eyebrow>
-        <h2 className="mt-5 text-2xl uppercase md:text-4xl">
-          Uma contabilidade feita para o seu segmento
+        <h2 className="mt-5 max-w-2xl text-2xl uppercase md:text-4xl">
+          Uma contabilidade feita para o <span className="text-gradient-brand">seu segmento</span>
         </h2>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {segments.map((s) => (
             <Link
               key={s.to}
               to={s.to}
-              className="group rounded-lg border border-border bg-card p-7 transition-colors hover:border-primary"
+              className="group rounded-2xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-brand"
             >
-              <s.icon className="size-8 text-cyan" />
+              <span className="inline-flex size-12 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground">
+                <s.icon className="size-6" />
+              </span>
               <h3 className="mt-5 text-xl">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
