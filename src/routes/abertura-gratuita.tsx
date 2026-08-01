@@ -103,7 +103,7 @@ function AberturaPage() {
               className="mt-6 space-y-4"
               onSubmit={(e) => {
                 e.preventDefault();
-                window.open(`https://wa.me/5517999990000?text=${message}`, "_blank");
+                window.open(whatsappLink(rawMessage), "_blank");
               }}
             >
               <div className="space-y-2">

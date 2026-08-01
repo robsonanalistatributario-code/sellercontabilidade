@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AberturaGratuitaRouteImport } from './routes/abertura-gratuita'
 import { Route as AdvogadosRouteImport } from './routes/advogados'
+import { Route as PlanosRouteImport } from './routes/planos'
 import { Route as SaudeRouteImport } from './routes/saude'
 import { Route as ServicosRouteImport } from './routes/servicos'
 
@@ -30,6 +31,11 @@ const AdvogadosRoute = AdvogadosRouteImport.update({
   path: '/advogados',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlanosRoute = PlanosRouteImport.update({
+  id: '/planos',
+  path: '/planos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SaudeRoute = SaudeRouteImport.update({
   id: '/saude',
   path: '/saude',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/abertura-gratuita': typeof AberturaGratuitaRoute
   '/advogados': typeof AdvogadosRoute
+  '/planos': typeof PlanosRoute
   '/saude': typeof SaudeRoute
   '/servicos': typeof ServicosRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/abertura-gratuita': typeof AberturaGratuitaRoute
   '/advogados': typeof AdvogadosRoute
+  '/planos': typeof PlanosRoute
   '/saude': typeof SaudeRoute
   '/servicos': typeof ServicosRoute
 }
@@ -60,19 +68,33 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/abertura-gratuita': typeof AberturaGratuitaRoute
   '/advogados': typeof AdvogadosRoute
+  '/planos': typeof PlanosRoute
   '/saude': typeof SaudeRoute
   '/servicos': typeof ServicosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/abertura-gratuita' | '/advogados' | '/saude' | '/servicos'
+  fullPaths:
+    | '/'
+    | '/abertura-gratuita'
+    | '/advogados'
+    | '/planos'
+    | '/saude'
+    | '/servicos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/abertura-gratuita' | '/advogados' | '/saude' | '/servicos'
+  to:
+    | '/'
+    | '/abertura-gratuita'
+    | '/advogados'
+    | '/planos'
+    | '/saude'
+    | '/servicos'
   id:
     | '__root__'
     | '/'
     | '/abertura-gratuita'
     | '/advogados'
+    | '/planos'
     | '/saude'
     | '/servicos'
   fileRoutesById: FileRoutesById
@@ -81,6 +103,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AberturaGratuitaRoute: typeof AberturaGratuitaRoute
   AdvogadosRoute: typeof AdvogadosRoute
+  PlanosRoute: typeof PlanosRoute
   SaudeRoute: typeof SaudeRoute
   ServicosRoute: typeof ServicosRoute
 }
@@ -108,6 +131,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdvogadosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/planos': {
+      id: '/planos'
+      path: '/planos'
+      fullPath: '/planos'
+      preLoaderRoute: typeof PlanosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/saude': {
       id: '/saude'
       path: '/saude'
@@ -129,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AberturaGratuitaRoute: AberturaGratuitaRoute,
   AdvogadosRoute: AdvogadosRoute,
+  PlanosRoute: PlanosRoute,
   SaudeRoute: SaudeRoute,
   ServicosRoute: ServicosRoute,
 }

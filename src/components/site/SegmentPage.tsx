@@ -32,7 +32,7 @@ export function SegmentPage({ content }: { content: SegmentContent }) {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href="https://wa.me/5517999990000" target="_blank" rel="noreferrer">
+              <a href={whatsappLink()} target="_blank" rel="noreferrer">
                 Falar com especialista
               </a>
             </Button>
