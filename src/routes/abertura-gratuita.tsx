@@ -11,6 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { whatsappLink } from "@/lib/contato";
 
 export const Route = createFileRoute("/abertura-gratuita")({
   head: () => ({
@@ -65,9 +66,7 @@ const faq = [
 function AberturaPage() {
   const [form, setForm] = useState({ nome: "", whatsapp: "", atividade: "" });
 
-  const message = encodeURIComponent(
-    `Olá! Quero abrir minha empresa com a Seller Contabilidade.\nNome: ${form.nome}\nWhatsApp: ${form.whatsapp}\nAtividade: ${form.atividade}`,
-  );
+  const rawMessage = `Olá! Quero abrir minha empresa com a Seller Contabilidade.\nNome: ${form.nome}\nWhatsApp: ${form.whatsapp}\nAtividade: ${form.atividade}`;
 
   return (
     <Page>
