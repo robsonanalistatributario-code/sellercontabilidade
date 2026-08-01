@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { WhatsAppFab } from "./WhatsAppFab";
 
 export function Page({ children }: { children: ReactNode }) {
   return (
@@ -8,6 +9,7 @@ export function Page({ children }: { children: ReactNode }) {
       <Header />
       <main>{children}</main>
       <Footer />
+      <WhatsAppFab />
     </div>
   );
 }
