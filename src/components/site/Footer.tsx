@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { WHATSAPP_DISPLAY } from "@/lib/contato";
-import logo from "@/assets/seller-logo.jpg.asset.json";
+import logo from "@/assets/logo-horizontal-branco.png.asset.json";
 
 export function Footer() {
   return (
