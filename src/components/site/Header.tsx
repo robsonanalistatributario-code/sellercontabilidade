@@ -19,15 +19,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
           <img
             src={logo.url}
             alt="Seller Contabilidade"
-            className="h-10 w-10 rounded object-cover"
+            className="h-10 w-auto"
           />
-          <span className="font-display text-base font-extrabold uppercase tracking-tight">
-            Seller <span className="text-primary">Contabilidade</span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">

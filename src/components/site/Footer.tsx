@@ -8,15 +8,12 @@ export function Footer() {
     <footer className="border-t border-border/60 bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3">
         <div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center">
             <img
               src={logo.url}
               alt="Seller Contabilidade"
-              className="h-11 w-11 rounded object-cover"
+              className="h-11 w-auto"
             />
-            <span className="font-display text-base font-extrabold uppercase">
-              Seller <span className="text-primary">Contabilidade</span>
-            </span>
           </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
             Contabilidade digital em São José do Rio Preto para clínicas, prestadores de
