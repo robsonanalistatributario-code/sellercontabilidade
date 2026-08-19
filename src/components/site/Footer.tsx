@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { WHATSAPP_DISPLAY } from "@/lib/contato";
-import logo from "@/assets/logo-horizontal-branco.png.asset.json";
+
 
 export function Footer() {
   return (
@@ -10,8 +10,11 @@ export function Footer() {
         <div>
           <div className="flex items-center">
             <img
-              src={logo.url}
+              src="/logo-seller.webp"
               alt="Seller Contabilidade"
+              width={320}
+              height={88}
+              loading="lazy"
               className="h-11 w-auto"
             />
           </div>
