@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo-horizontal.png.asset.json";
+
 import { Button } from "@/components/ui/button";
 
 const nav = [
@@ -21,8 +21,10 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
         <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
           <img
-            src={logo.url}
-            alt="Seller Contabilidade"
+            src="/logo-seller.webp"
+            alt="Seller Contabilidade — contabilidade digital em São José do Rio Preto"
+            width={320}
+            height={80}
             className="h-10 w-auto"
           />
         </Link>
