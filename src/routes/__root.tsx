@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { localBusinessJsonLd } from "../lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -84,8 +85,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Contabilidade digital em São José do Rio Preto para saúde, serviços e advogados.",
       },
       { name: "author", content: "Seller Contabilidade" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "theme-color", content: "#0b2a5b" },
+      { name: "geo.region", content: "BR-SP" },
+      { name: "geo.placename", content: "São José do Rio Preto" },
+      { property: "og:site_name", content: "Seller Contabilidade" },
+      { property: "og:locale", content: "pt_BR" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(localBusinessJsonLd),
+      },
     ],
     links: [
       {
@@ -110,7 +123,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
