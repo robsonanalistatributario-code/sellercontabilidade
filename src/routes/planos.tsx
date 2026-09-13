@@ -4,23 +4,60 @@ import { Page, Section, Eyebrow } from "@/components/site/Page";
 import { Pricing } from "@/components/site/Pricing";
 import { Button } from "@/components/ui/button";
 import { whatsappLink } from "@/lib/contato";
+import { pageHead, faqJsonLd, breadcrumbJsonLd, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 export const Route = createFileRoute("/planos")({
   head: () => ({
-    meta: [
-      { title: "Planos de Contabilidade | Seller Contabilidade Rio Preto" },
+    ...pageHead({
+      path: "/planos",
+      title: "Planos de Contabilidade | Seller Contabilidade Rio Preto",
+      description:
+        "Planos Basic (R$ 397), Plus (R$ 497) e Premium. Contabilidade digital em Rio Preto com atendimento online, humanizado ou personalizado.",
+      ogTitle: "Planos de Contabilidade | Seller Contabilidade",
+      ogDescription:
+        "Basic R$ 397, Plus R$ 497 e Premium a consultar. Preço fechado, sem surpresas.",
+    }),
+    scripts: [
       {
-        name: "description",
-        content:
-          "Planos Basic (R$ 397), Plus (R$ 697) e Premium. Contabilidade digital em Rio Preto com atendimento online, humanizado ou personalizado.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Planos de contabilidade digital",
+          serviceType: "Serviços de contabilidade",
+          url: `${SITE_URL}/planos`,
+          provider: { "@type": "AccountingService", name: SITE_NAME, url: SITE_URL },
+          areaServed: { "@type": "City", name: "São José do Rio Preto" },
+          offers: [
+            {
+              "@type": "Offer",
+              name: "Basic",
+              price: "397.00",
+              priceCurrency: "BRL",
+              url: `${SITE_URL}/planos`,
+              availability: "https://schema.org/InStock",
+            },
+            {
+              "@type": "Offer",
+              name: "Plus",
+              price: "497.00",
+              priceCurrency: "BRL",
+              url: `${SITE_URL}/planos`,
+              availability: "https://schema.org/InStock",
+            },
+          ],
+        }),
       },
-      { property: "og:title", content: "Planos de Contabilidade | Seller Contabilidade" },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(faq)) },
       {
-        property: "og:description",
-        content: "Basic R$ 397, Plus R$ 697 e Premium a consultar. Preço fechado, sem surpresas.",
+        type: "application/ld+json",
+        children: JSON.stringify(
+          breadcrumbJsonLd([
+            { name: "Início", path: "/" },
+            { name: "Planos", path: "/planos" },
+          ]),
+        ),
       },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Planos,
