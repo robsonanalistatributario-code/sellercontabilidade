@@ -12,23 +12,39 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { whatsappLink } from "@/lib/contato";
+import { pageHead, faqJsonLd, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/abertura-gratuita")({
   head: () => ({
-    meta: [
-      { title: "Abertura de Empresa Grátis em Rio Preto | Seller Contabilidade" },
+    ...pageHead({
+      path: "/abertura-gratuita",
+      title: "Abertura de Empresa Grátis em Rio Preto | Seller Contabilidade",
+      description:
+        "Abra sua empresa em Rio Preto sem pagar honorários de abertura. CNPJ, alvará e certificado digital com a Seller Contabilidade, 100% online.",
+      ogTitle: "Abra Sua Empresa em Rio Preto Sem Pagar Honorários de Abertura",
+      ogDescription: "Abertura de CNPJ gratuita com contador especialista no seu segmento.",
+    }),
+    scripts: [
       {
-        name: "description",
-        content:
-          "Abra sua empresa em Rio Preto sem pagar honorários de abertura. CNPJ, alvará e certificado digital com a Seller Contabilidade, 100% online.",
+        type: "application/ld+json",
+        children: JSON.stringify(
+          serviceJsonLd({
+            name: "Abertura de empresa sem honorários",
+            description:
+              "Abertura de CNPJ em São José do Rio Preto sem honorários: viabilidade, Junta Comercial, alvará e certificado digital.",
+            path: "/abertura-gratuita",
+          }),
+        ),
       },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(faq)) },
       {
-        property: "og:title",
-        content: "Abra Sua Empresa em Rio Preto Sem Pagar Honorários de Abertura",
-      },
-      {
-        property: "og:description",
-        content: "Abertura de CNPJ gratuita com contador especialista no seu segmento.",
+        type: "application/ld+json",
+        children: JSON.stringify(
+          breadcrumbJsonLd([
+            { name: "Início", path: "/" },
+            { name: "Abertura gratuita", path: "/abertura-gratuita" },
+          ]),
+        ),
       },
     ],
   }),

@@ -1,19 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SegmentPage } from "@/components/site/SegmentPage";
+import { pageHead, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/saude")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Médicos e Clínicas em Rio Preto | Seller" },
+    ...pageHead({
+      path: "/saude",
+      title: "Contabilidade para Médicos e Clínicas em Rio Preto | Seller",
+      description:
+        "Contabilidade especializada em saúde: médicos, dentistas, psicólogos e clínicas. Equiparação hospitalar, PJ médica e menos imposto em Rio Preto.",
+      ogTitle: "Contabilidade para a Área da Saúde | Seller Contabilidade",
+      ogDescription:
+        "PJ médica, equiparação hospitalar e planejamento tributário para clínicas.",
+    }),
+    scripts: [
       {
-        name: "description",
-        content:
-          "Contabilidade especializada em saúde: médicos, dentistas, psicólogos e clínicas. Equiparação hospitalar, PJ médica e menos imposto em Rio Preto.",
+        type: "application/ld+json",
+        children: JSON.stringify(
+          serviceJsonLd({
+            name: "Contabilidade para a área da saúde",
+            description:
+              "Contabilidade para médicos, dentistas, psicólogos e clínicas, com equiparação hospitalar e planejamento tributário.",
+            path: "/saude",
+          }),
+        ),
       },
-      { property: "og:title", content: "Contabilidade para a Área da Saúde | Seller Contabilidade" },
       {
-        property: "og:description",
-        content: "PJ médica, equiparação hospitalar e planejamento tributário para clínicas.",
+        type: "application/ld+json",
+        children: JSON.stringify(
+          breadcrumbJsonLd([
+            { name: "Início", path: "/" },
+            { name: "Área da saúde", path: "/saude" },
+          ]),
+        ),
       },
     ],
   }),

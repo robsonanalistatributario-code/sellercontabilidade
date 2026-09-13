@@ -47,9 +47,9 @@ export const localBusinessJsonLd = {
   logo: OG_IMAGE,
   description:
     "Contabilidade digital em São José do Rio Preto especializada em área da saúde, prestadores de serviços e advogados. Abertura de empresa sem honorários.",
-  telephone: "+5511964880129",
+  telephone: "+5517991009231",
   email: "contato@sellercontabilidade.com.br",
-  priceRange: "R$ 397 - R$ 697",
+  priceRange: "R$ 397 - R$ 497",
   address: {
     "@type": "PostalAddress",
     addressLocality: "São José do Rio Preto",
@@ -69,7 +69,7 @@ export const localBusinessJsonLd = {
       closes: "18:00",
     },
   ],
-  sameAs: ["https://wa.me/5511964880129"],
+  sameAs: ["https://wa.me/5517991009231"],
 };
 
 export function serviceJsonLd({

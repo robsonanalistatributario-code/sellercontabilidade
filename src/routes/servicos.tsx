@@ -1,19 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SegmentPage } from "@/components/site/SegmentPage";
+import { pageHead, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/servicos")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Prestadores de Serviços | Seller Rio Preto" },
+    ...pageHead({
+      path: "/servicos",
+      title: "Contabilidade para Prestadores de Serviços | Seller Rio Preto",
+      description:
+        "Contabilidade digital para prestadores de serviços, consultores, TI, marketing e agências em Rio Preto. Simples Nacional otimizado e Fator R.",
+      ogTitle: "Contabilidade para Prestadores de Serviços | Seller",
+      ogDescription:
+        "Fator R, Simples Nacional e rotina fiscal 100% digital para quem vive de serviços.",
+    }),
+    scripts: [
       {
-        name: "description",
-        content:
-          "Contabilidade digital para prestadores de serviços, consultores, TI, marketing e agências em Rio Preto. Simples Nacional otimizado e Fator R.",
+        type: "application/ld+json",
+        children: JSON.stringify(
+          serviceJsonLd({
+            name: "Contabilidade para prestadores de serviços",
+            description:
+              "Contabilidade digital para consultores, TI, marketing, engenharia e agências, com monitoramento do Fator R.",
+            path: "/servicos",
+          }),
+        ),
       },
-      { property: "og:title", content: "Contabilidade para Prestadores de Serviços | Seller" },
       {
-        property: "og:description",
-        content: "Fator R, Simples Nacional e rotina fiscal 100% digital para quem vive de serviços.",
+        type: "application/ld+json",
+        children: JSON.stringify(
+          breadcrumbJsonLd([
+            { name: "Início", path: "/" },
+            { name: "Prestadores de serviços", path: "/servicos" },
+          ]),
+        ),
       },
     ],
   }),
