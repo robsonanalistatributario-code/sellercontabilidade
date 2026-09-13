@@ -25,6 +25,8 @@ export function Header() {
             alt="Seller Contabilidade — contabilidade digital em São José do Rio Preto"
             width={320}
             height={80}
+            fetchPriority="high"
+            decoding="async"
             className="h-10 w-auto"
           />
         </Link>

@@ -31,7 +31,7 @@ export const plans: Plan[] = [
   },
   {
     name: "Plus",
-    price: "R$ 697",
+    price: "R$ 497",
     suffix: "/mês",
     tagline: "Para empresas com equipe enxuta que querem contador de verdade.",
     service: "Atendimento humanizado",
