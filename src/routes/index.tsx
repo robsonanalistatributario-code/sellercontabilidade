@@ -13,22 +13,23 @@ import { Page, Section, Eyebrow } from "@/components/site/Page";
 import { Button } from "@/components/ui/button";
 import { Pricing } from "@/components/site/Pricing";
 import { whatsappLink } from "@/lib/contato";
+import { pageHead } from "@/lib/seo";
+
+const head = pageHead({
+  path: "/",
+  title: "Seller Contabilidade | Contabilidade Digital em Rio Preto",
+  description:
+    "Contabilidade digital em São José do Rio Preto para saúde, prestadores de serviços e advogados. Abra sua empresa sem pagar honorários de abertura.",
+  ogDescription:
+    "Especialistas em saúde, serviços e advocacia. Abertura de empresa gratuita em Rio Preto.",
+});
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "Seller Contabilidade | Contabilidade Digital em Rio Preto" },
-      {
-        name: "description",
-        content:
-          "Contabilidade digital em São José do Rio Preto para saúde, prestadores de serviços e advogados. Abra sua empresa sem pagar honorários de abertura.",
-      },
-      { property: "og:title", content: "Seller Contabilidade | Contabilidade Digital em Rio Preto" },
-      {
-        property: "og:description",
-        content:
-          "Especialistas em saúde, serviços e advocacia. Abertura de empresa gratuita em Rio Preto.",
-      },
+    ...head,
+    links: [
+      ...head.links,
+      { rel: "preload", as: "image", href: "/logo-seller.webp", fetchpriority: "high" },
     ],
   }),
   component: Index,

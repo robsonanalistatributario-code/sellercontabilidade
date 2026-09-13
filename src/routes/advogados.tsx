@@ -1,19 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SegmentPage } from "@/components/site/SegmentPage";
+import { pageHead, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/advogados")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Advogados e Sociedades de Advogados | Seller" },
+    ...pageHead({
+      path: "/advogados",
+      title: "Contabilidade para Advogados e Sociedades de Advogados | Seller",
+      description:
+        "Contabilidade especializada para advogados em Rio Preto: registro na OAB, sociedade unipessoal, honorários de êxito e menor carga tributária.",
+      ogTitle: "Contabilidade para Advogados | Seller Contabilidade",
+      ogDescription:
+        "Sociedade unipessoal de advocacia, OAB e tributação otimizada de honorários.",
+    }),
+    scripts: [
       {
-        name: "description",
-        content:
-          "Contabilidade especializada para advogados em Rio Preto: registro na OAB, sociedade unipessoal, honorários de êxito e menor carga tributária.",
+        type: "application/ld+json",
+        children: JSON.stringify(
+          serviceJsonLd({
+            name: "Contabilidade para advogados",
+            description:
+              "Contabilidade para advogados e sociedades de advocacia: OAB, sociedade unipessoal e honorários de êxito.",
+            path: "/advogados",
+          }),
+        ),
       },
-      { property: "og:title", content: "Contabilidade para Advogados | Seller Contabilidade" },
       {
-        property: "og:description",
-        content: "Sociedade unipessoal de advocacia, OAB e tributação otimizada de honorários.",
+        type: "application/ld+json",
+        children: JSON.stringify(
+          breadcrumbJsonLd([
+            { name: "Início", path: "/" },
+            { name: "Advogados", path: "/advogados" },
+          ]),
+        ),
       },
     ],
   }),
