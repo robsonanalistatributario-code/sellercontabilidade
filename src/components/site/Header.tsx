@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { whatsappLink } from "@/lib/contato";
 
 const nav = [
   { to: "/", label: "Início" },
@@ -44,7 +45,13 @@ export function Header() {
             </Link>
           ))}
           <Button asChild size="sm">
-            <Link to="/abertura-gratuita">Abrir empresa grátis</Link>
+            <a
+              href={whatsappLink("Olá! Quero falar com um contador da Seller.")}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Falar com um contador
+            </a>
           </Button>
         </nav>
 

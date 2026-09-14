@@ -4,24 +4,27 @@ import {
   Stethoscope,
   Scale,
   Briefcase,
-  FileCheck2,
   MessageCircle,
-  ShieldCheck,
-  Repeat,
+  UserRound,
+  PhoneCall,
+  HeartHandshake,
+  Clock,
+  Quote,
+  CheckCircle2,
 } from "lucide-react";
 import { Page, Section, Eyebrow } from "@/components/site/Page";
 import { Button } from "@/components/ui/button";
 import { Pricing } from "@/components/site/Pricing";
-import { whatsappLink } from "@/lib/contato";
+import { whatsappLink, WHATSAPP_DISPLAY } from "@/lib/contato";
 import { pageHead } from "@/lib/seo";
 
 const head = pageHead({
   path: "/",
-  title: "Seller Contabilidade | Contabilidade Digital em Rio Preto",
+  title: "Seller Contabilidade | Contador Humanizado em Rio Preto",
   description:
-    "Contabilidade digital em São José do Rio Preto para saúde, prestadores de serviços e advogados. Abra sua empresa sem pagar honorários de abertura.",
+    "Contabilidade moderna com atendimento individual em São José do Rio Preto. Um contador dedicado com nome e telefone para saúde, prestadores de serviços e advogados.",
   ogDescription:
-    "Especialistas em saúde, serviços e advocacia. Abertura de empresa gratuita em Rio Preto.",
+    "Tecnologia por trás, gente na frente: contador dedicado, atendimento individual e imposto no menor valor legal.",
 });
 
 export const Route = createFileRoute("/")({
@@ -40,41 +43,85 @@ const segments = [
     to: "/saude",
     icon: Stethoscope,
     title: "Área da saúde",
-    text: "Médicos, dentistas, psicólogos e clínicas. PJ médica e equiparação hospitalar.",
+    text: "Médicos, dentistas, psicólogos e clínicas. PJ médica, equiparação hospitalar e imposto reduzido.",
   },
   {
     to: "/servicos",
     icon: Briefcase,
     title: "Prestadores de serviços",
-    text: "Consultores, TI, marketing e engenharia. Fator R monitorado todo mês.",
+    text: "Consultores, TI, marketing e engenharia. Fator R monitorado todos os meses por um contador.",
   },
   {
     to: "/advogados",
     icon: Scale,
     title: "Advogados",
-    text: "Sociedade unipessoal, registro na OAB e controle de honorários de êxito.",
+    text: "Sociedade unipessoal, OAB e controle de honorários de êxito com quem entende do setor.",
   },
 ] as const;
 
-const steps = [
-  { title: "Diagnóstico gratuito", text: "Entendemos sua atuação e simulamos o melhor regime." },
-  { title: "Documentos online", text: "Você envia tudo pelo WhatsApp e assina digitalmente." },
-  { title: "Empresa aberta", text: "CNPJ, alvará e certificado digital sem honorários." },
-  { title: "Rotina no automático", text: "Notas, guias e folha com contador dedicado." },
+const humanPillars = [
+  {
+    icon: UserRound,
+    title: "Um contador com nome",
+    text: "Você não fala com robô nem com fila de atendimento. Sempre a mesma pessoa cuidando da sua empresa.",
+  },
+  {
+    icon: PhoneCall,
+    title: "Telefone e WhatsApp direto",
+    text: "Dúvida de imposto às 18h? Você manda mensagem e conversa com gente de verdade.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Reunião individual todo mês",
+    text: "Analisamos seu faturamento junto com você e mostramos onde sobra e onde escapa dinheiro.",
+  },
+  {
+    icon: Clock,
+    title: "Tecnologia que economiza seu tempo",
+    text: "Notas, guias e documentos no automático. A tecnologia trabalha no fundo, o humano fica na frente.",
+  },
 ] as const;
 
-const differentials = [
-  { icon: FileCheck2, title: "Abertura sem honorários", text: "Você não paga nada pela abertura da empresa." },
-  { icon: MessageCircle, title: "Contador no WhatsApp", text: "Time dedicado, resposta em até 24h úteis." },
-  { icon: ShieldCheck, title: "Especialista por segmento", text: "Quem cuida de você entende do seu mercado." },
-  { icon: Repeat, title: "Troca de contador grátis", text: "Assumimos toda a transição com o antigo escritório." },
+const comparison = [
+  { them: "Você vira um número em um painel", us: "Você tem um contador responsável pelo seu CNPJ" },
+  { them: "Suporte por chatbot e ticket", us: "WhatsApp e telefone com resposta humana" },
+  { them: "Ninguém revisa seu imposto", us: "Revisão mensal do regime e do Fator R" },
+  { them: "Cada mês fala com alguém diferente", us: "Mesmo time do começo ao fim" },
 ] as const;
 
 const stats = [
   { value: "+300", label: "Empresas atendidas" },
-  { value: "R$ 0", label: "Honorários de abertura" },
+  { value: "1 p/ 1", label: "Contador dedicado" },
   { value: "24h", label: "Resposta no WhatsApp" },
-  { value: "100%", label: "Digital e sem fila" },
+  { value: "17 anos", label: "De estrada em Rio Preto" },
+] as const;
+
+const testimonials = [
+  {
+    quote:
+      "Saí de um escritório 100% digital onde ninguém me respondia. Aqui eu ligo e falo com a pessoa que cuida da minha clínica.",
+    author: "Dra. Marina R.",
+    role: "Clínica odontológica · Rio Preto",
+  },
+  {
+    quote:
+      "Revisaram meu Fator R e minha retirada. Passei a pagar bem menos imposto no mesmo faturamento.",
+    author: "Rafael T.",
+    role: "Consultoria de TI",
+  },
+  {
+    quote:
+      "Atendimento próximo de verdade. Sinto que tenho um contador, não um aplicativo.",
+    author: "Dr. Henrique M.",
+    role: "Advogado · Sociedade unipessoal",
+  },
+] as const;
+
+const steps = [
+  { title: "Conversa sem compromisso", text: "Entendemos seu momento, seu faturamento e suas dores atuais." },
+  { title: "Diagnóstico do seu imposto", text: "Mostramos quanto você paga hoje e quanto poderia pagar." },
+  { title: "Transição feita por nós", text: "Assumimos a conversa com o contador antigo e organizamos tudo." },
+  { title: "Rotina com contador dedicado", text: "Você passa a ter acompanhamento individual todo mês." },
 ] as const;
 
 function Index() {
@@ -84,28 +131,26 @@ function Index() {
         <Section className="py-20 md:py-28">
           <Eyebrow>São José do Rio Preto · SP</Eyebrow>
           <h1 className="mt-6 max-w-4xl text-4xl uppercase leading-[1.03] md:text-6xl">
-            Abra sua empresa em Rio Preto{" "}
-            <span className="text-gradient-brand">sem pagar honorários de abertura</span>
+            A contabilidade do futuro tem{" "}
+            <span className="text-gradient-brand">gente de verdade te atendendo</span>
           </h1>
           <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-            Contabilidade digital com especialistas em saúde, prestadores de serviços e
-            advocacia. Você foca no seu negócio, a Seller resolve imposto, nota fiscal e
-            burocracia.
+            Tecnologia por trás, pessoas na frente. Na Seller você tem um contador dedicado,
+            atendimento individual e revisão do seu imposto todo mês — sem chatbot, sem fila,
+            sem falar com um estranho diferente a cada ligação.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Button asChild size="lg">
-              <Link to="/abertura-gratuita">
-                Abrir empresa grátis <ArrowRight className="size-4" />
-              </Link>
+              <a href={whatsappLink("Olá! Quero falar com um contador da Seller.")} target="_blank" rel="noreferrer">
+                Falar com um contador <ArrowRight className="size-4" />
+              </a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href={whatsappLink()} target="_blank" rel="noreferrer">
-                Falar no WhatsApp
-              </a>
+              <Link to="/planos">Ver planos e preços</Link>
             </Button>
           </div>
           <p className="mt-6 text-xs uppercase tracking-widest text-muted-foreground">
-            Sem taxa de adesão · Sem multa de cancelamento · 100% online
+            Atendimento individual · Troca de contador sem custo · {WHATSAPP_DISPLAY}
           </p>
 
           <dl className="mt-14 grid grid-cols-2 gap-5 md:grid-cols-4">
@@ -125,9 +170,64 @@ function Index() {
       </div>
 
       <Section>
+        <Eyebrow>Atendimento humanizado</Eyebrow>
+        <h2 className="mt-5 max-w-3xl text-2xl uppercase md:text-4xl">
+          Digitalizar demais afastou o cliente do contador.{" "}
+          <span className="text-gradient-brand">Nós fizemos o contrário.</span>
+        </h2>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          {humanPillars.map((p) => (
+            <div
+              key={p.title}
+              className="flex gap-4 rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-brand"
+            >
+              <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground">
+                <p.icon className="size-5" />
+              </span>
+              <div>
+                <h3 className="text-base">{p.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{p.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <div className="border-y border-border/60 bg-surface">
+        <Section>
+          <h2 className="max-w-2xl text-2xl uppercase md:text-4xl">
+            A diferença no dia a dia
+          </h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            <div className="rounded-2xl border border-border bg-card p-7">
+              <h3 className="text-base text-muted-foreground">Contabilidade só automatizada</h3>
+              <ul className="mt-5 space-y-3">
+                {comparison.map((c) => (
+                  <li key={c.them} className="text-sm text-muted-foreground">
+                    — {c.them}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-primary/40 bg-card p-7 shadow-brand">
+              <h3 className="text-base">Seller Contabilidade</h3>
+              <ul className="mt-5 space-y-3">
+                {comparison.map((c) => (
+                  <li key={c.us} className="flex gap-2 text-sm">
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
+                    <span>{c.us}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Section>
+      </div>
+
+      <Section>
         <Eyebrow>Especialidades</Eyebrow>
         <h2 className="mt-5 max-w-2xl text-2xl uppercase md:text-4xl">
-          Uma contabilidade feita para o <span className="text-gradient-brand">seu segmento</span>
+          Um especialista que entende o <span className="text-gradient-brand">seu mercado</span>
         </h2>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {segments.map((s) => (
@@ -152,37 +252,35 @@ function Index() {
 
       <div className="border-y border-border/60 bg-surface">
         <Section>
-          <h2 className="text-2xl uppercase md:text-4xl">Como funciona</h2>
-          <ol className="mt-10 grid gap-5 md:grid-cols-4">
-            {steps.map((s, i) => (
-              <li key={s.title} className="rounded-2xl border border-border bg-card p-6">
-                <span className="font-display text-3xl text-gradient-brand">0{i + 1}</span>
-                <h3 className="mt-3 text-base">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
-              </li>
+          <h2 className="text-2xl uppercase md:text-4xl">Quem já trocou conta a diferença</h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <figure key={t.author} className="rounded-2xl border border-border bg-card p-7">
+                <Quote className="size-6 text-primary" />
+                <blockquote className="mt-4 text-sm text-muted-foreground">“{t.quote}”</blockquote>
+                <figcaption className="mt-5 text-sm font-semibold">
+                  {t.author}
+                  <span className="mt-1 block text-xs font-normal uppercase tracking-wide text-muted-foreground">
+                    {t.role}
+                  </span>
+                </figcaption>
+              </figure>
             ))}
-          </ol>
+          </div>
         </Section>
       </div>
 
       <Section>
-        <h2 className="text-2xl uppercase md:text-4xl">Por que a Seller</h2>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
-          {differentials.map((d) => (
-            <div
-              key={d.title}
-              className="flex gap-4 rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-brand"
-            >
-              <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                <d.icon className="size-5 text-primary" />
-              </span>
-              <div>
-                <h3 className="text-base">{d.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{d.text}</p>
-              </div>
-            </div>
+        <h2 className="text-2xl uppercase md:text-4xl">Como começamos juntos</h2>
+        <ol className="mt-10 grid gap-5 md:grid-cols-4">
+          {steps.map((s, i) => (
+            <li key={s.title} className="rounded-2xl border border-border bg-card p-6">
+              <span className="font-display text-3xl text-gradient-brand">0{i + 1}</span>
+              <h3 className="mt-3 text-base">{s.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
 
       <Pricing />
@@ -190,19 +288,19 @@ function Index() {
       <div className="border-t border-border/60 bg-surface">
         <Section className="text-center">
           <h2 className="mx-auto max-w-2xl text-2xl uppercase md:text-4xl">
-            Pronto para abrir sua empresa <span className="text-gradient-brand">sem custo</span>?
+            Quer um contador que <span className="text-gradient-brand">atende você pelo nome</span>?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-            Fale com um especialista da Seller e receba a simulação do seu imposto hoje.
+            Converse com um especialista da Seller e receba hoje o diagnóstico do seu imposto.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg">
-              <Link to="/abertura-gratuita">Quero abrir minha empresa</Link>
+              <a href={whatsappLink("Olá! Quero o diagnóstico do meu imposto com a Seller.")} target="_blank" rel="noreferrer">
+                <MessageCircle className="size-4" /> Falar no WhatsApp
+              </a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href={whatsappLink()} target="_blank" rel="noreferrer">
-                Falar no WhatsApp
-              </a>
+              <Link to="/planos">Ver planos</Link>
             </Button>
           </div>
         </Section>
