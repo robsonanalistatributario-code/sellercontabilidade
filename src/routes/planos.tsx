@@ -12,10 +12,10 @@ export const Route = createFileRoute("/planos")({
       path: "/planos",
       title: "Planos de Contabilidade | Seller Contabilidade Rio Preto",
       description:
-        "Planos Basic (R$ 397), Plus (R$ 497) e Premium. Contabilidade digital em Rio Preto com atendimento online, humanizado ou personalizado.",
+        "Planos Basic, Plus e Premium com preço sob consulta. Contabilidade digital em Rio Preto com atendimento online, humanizado ou personalizado.",
       ogTitle: "Planos de Contabilidade | Seller Contabilidade",
       ogDescription:
-        "Basic R$ 397, Plus R$ 497 e Premium a consultar. Preço fechado, sem surpresas.",
+        "Planos Basic, Plus e Premium. Peça sua proposta sem compromisso.",
     }),
     scripts: [
       {
@@ -32,16 +32,12 @@ export const Route = createFileRoute("/planos")({
             {
               "@type": "Offer",
               name: "Basic",
-              price: "397.00",
-              priceCurrency: "BRL",
               url: `${SITE_URL}/planos`,
               availability: "https://schema.org/InStock",
             },
             {
               "@type": "Offer",
               name: "Plus",
-              price: "497.00",
-              priceCurrency: "BRL",
               url: `${SITE_URL}/planos`,
               availability: "https://schema.org/InStock",
             },

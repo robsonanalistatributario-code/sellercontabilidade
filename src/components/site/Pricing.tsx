@@ -16,8 +16,7 @@ export type Plan = {
 export const plans: Plan[] = [
   {
     name: "Basic",
-    price: "R$ 397",
-    suffix: "/mês",
+    price: "A consultar",
     tagline: "Para quem está começando e não tem folha de pagamento.",
     service: "Atendimento online",
     features: [
@@ -31,8 +30,7 @@ export const plans: Plan[] = [
   },
   {
     name: "Plus",
-    price: "R$ 497",
-    suffix: "/mês",
+    price: "A consultar",
     tagline: "Para empresas com equipe enxuta que querem contador de verdade.",
     service: "Atendimento humanizado",
     featured: true,
@@ -67,7 +65,7 @@ export function Pricing({ compact = false }: { compact?: boolean }) {
       <div className="text-center">
         <Eyebrow>Planos e preços</Eyebrow>
         <h2 className="mx-auto mt-5 max-w-3xl text-2xl uppercase md:text-4xl">
-          Preço fechado, <span className="text-gradient-brand">sem surpresa no fim do mês</span>
+          Planos sob medida, <span className="text-gradient-brand">para o seu momento</span>
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
           Escolha o plano do seu momento. A abertura da empresa continua sem honorários.
@@ -122,12 +120,12 @@ export function Pricing({ compact = false }: { compact?: boolean }) {
             >
               <a
                 href={whatsappLink(
-                  `Olá! Quero contratar o plano ${p.name} (${p.price}) da Seller Contabilidade.`,
+                  `Olá! Quero contratar o plano ${p.name} da Seller Contabilidade.`,
                 )}
                 target="_blank"
                 rel="noreferrer"
               >
-                {p.price === "A consultar" ? "Solicitar proposta" : "Contratar plano"}
+                Solicitar proposta
               </a>
             </Button>
           </div>

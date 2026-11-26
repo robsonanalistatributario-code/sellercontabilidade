@@ -49,7 +49,6 @@ export const localBusinessJsonLd = {
     "Contabilidade digital em São José do Rio Preto especializada em área da saúde, prestadores de serviços e advogados. Abertura de empresa sem honorários.",
   telephone: "+5517991009231",
   email: "contato@sellercontabilidade.com.br",
-  priceRange: "R$ 397 - R$ 497",
   address: {
     "@type": "PostalAddress",
     addressLocality: "São José do Rio Preto",
